@@ -31,10 +31,10 @@ def main(filename: str, num_places: int) -> None:
         
         # output email address to files
         with open("email_places.txt", "w") as p:
-            p.write(",".join(places_))
+            p.write("; ".join(places_))
         
         with open("email_not_places.txt", "w") as p:
-            p.write(",".join(entries_))
+            p.write("; ".join(entries_))
         
         # output all details to files
         with open("places.csv", "w") as p:
