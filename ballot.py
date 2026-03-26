@@ -13,7 +13,16 @@ def main(filename: str, num_places: int) -> None:
             if reader.line_num== 1:
                 header = line
             else:
-                entries.append(line)
+                # make sure there are no duplicates
+                if line not in entries:
+                    entries.append(line)
+                else:
+                    print("#################################")
+                    print("WARNING: Same person applied twice.")
+                    print(line)
+                    print("#################################")
+                    entries.remove(line)
+        
         
         # get the index of the first header column that contains the word email
         email_row_index = header.index([ i for i in header if "email" in i.lower() ][0])
