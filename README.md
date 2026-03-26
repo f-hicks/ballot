@@ -2,7 +2,7 @@
 
 Designed for [Southampton University Hillwalking Club](https://walking.susu.org) away trips.
 
-It will work on any csv file where headers exist, and where there is at least one header that case insensitively contains the string "email". It uses python's built in `random.choice` to pseudorandomly pick an item from an iterable. This is repeated until enough participants have been chosen.
+It will work on any csv file where headers exist, and where there is at least one header that case insensitively contains the string "email". It uses python's built in `random.sample(n: int)` to pseudorandomly pick n items from an iterable. This is repeated until enough participants have been chosen.
 
 ## Usage
 
