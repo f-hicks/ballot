@@ -27,12 +27,10 @@ def main(filename: str, num_places: int) -> None:
         # get the index of the first header column that contains the word email
         email_row_index = header.index([ i for i in header if "email" in i.lower() ][0])
                         
-        # use `random.choice` to pick `num_places` random items from the entries.
-        # add them to the places list and remove them from the unselected pool.
-        places: list[list[str]] = []
-        for i in range(num_places):
-            places.append(random.choice(entries))
-            entries.remove(places[-1])
+        # use `random.sample` to pick `num_places` random items from the entries.
+        # let the random module handle selecting all the places rather than using a loop and 
+        # `random.choice`
+        places: list[list[str]] = random.sample(entries, num_places)
         
         # get just the email address' for easy pasting into outlook
         places_  = [i[email_row_index].replace("\"", "").replace(" ", "") for i in places]
